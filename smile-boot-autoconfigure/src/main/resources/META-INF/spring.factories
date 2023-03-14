@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.smile.boot.autoconfigure.swagger.SpringFoxAutoConfiguration
+
+org.springframework.web.servlet.config.annotation.WebMvcConfigurer=\
+  com.smile.boot.autoconfigure.swagger.SwaggerBootstrapUiConfigurer

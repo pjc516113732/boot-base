@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>2.3.5.RELEASE</version>
+        <relativePath/>
+    </parent>
+    <groupId>com.smile.boot</groupId>
+    <artifactId>smile-boot-base</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+    <developers>
+        <developer>
+            <name>jun-chang</name>
+        </developer>
+    </developers>
+    <modules>
+        <module>smile-boot-starters</module>
+        <module>smile-boot-parent</module>
+        <module>smile-boot-dependency</module>
+        <module>smile-boot-starters</module>
+        <module>smile-boot-autoconfigure</module>
+        <module>smile-boot-data</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <revision>1.0.0-SNAPSHOT</revision>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+
+    <profiles>
+        <profile>
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <modules>
+                <module>smile-boot-starters</module>
+                <module>smile-boot-parent</module>
+                <module>smile-boot-dependency</module>
+                <module>smile-boot-starters</module>
+                <module>smile-boot-autoconfigure</module>
+                <module>smile-boot-data</module>
+            </modules>
+        </profile>
+    </profiles>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-plugin</artifactId>
+                <version>1.11.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check-local-modification</goal>
+                            <goal>diff</goal>
+                        </goals>
+                        <phase>deploy</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <connectionType>developerConnection</connectionType>
+                    <errorMessage>请先提交再进行deploy！</errorMessage>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
